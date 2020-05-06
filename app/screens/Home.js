@@ -29,7 +29,7 @@ export default function Finish({ navigation }) {
                 style={{padding : 4, borderWidth: 2, borderColor: "black", width : "80%"} }
                 onChangeText={name => setName(name)} 
                 value={name}
-                placeholder="Enter Your Name"
+                placeholder="Enter Your Nameeee"
             >  
             </TextInput>
 

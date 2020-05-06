@@ -48,6 +48,7 @@ export function submit(data){
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         })
         .then(res=>{
+            console.log(res.data)
             if(res.data.status == 'solved'){
                 dispatch(setSolved(true));
                 dispatch(setWin(true));

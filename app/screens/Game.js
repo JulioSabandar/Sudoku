@@ -30,20 +30,13 @@ function Game ({ navigation, route }){
       } else if (!isActive && seconds !== 0) {
         clearInterval(interval);
       }
-
-      // if (isActive) {
-      //   interval = setInterval(() => {
-      //     setSeconds(seconds => seconds + 1);
-      //   }, 1000);
-      // } else if (!isActive && seconds !== 0) {
-      //   clearInterval(interval);
-      // }
       return () => clearInterval(interval);
     }, [isActive, seconds]);
-    const updateBoard = (e, idx1, idx2) => {
-        let temp = tempBoard;
-        temp[idx1][idx2] = Number(e.target.value);
-        dispatch(setTempBoard(temp));
+
+    const updateBoard = (value, idx1, idx2) => {
+      let temp = tempBoard;
+      temp[idx1][idx2] = Number(value.nativeEvent.text);
+      dispatch(setTempBoard(temp));
     }
     const encodeBoard = (board) => board.reduce((result, row, i) => result + `%5B${encodeURIComponent(row)}%5D${i === board.length -1 ? '' : '%2C'}`, '')
     const encodeParams = (params) => 
@@ -58,7 +51,6 @@ function Game ({ navigation, route }){
       dispatch(setTime(seconds));
       setSeconds(0);
       dispatch(setIsActive(false));
-
       dispatch(solve(encodeParams(data)));
       navigation.navigate("Finish", {name});
 
@@ -67,15 +59,10 @@ function Game ({ navigation, route }){
       let data = {
         board: tempBoard
       }
-      let data2 = {
-        board: board
-      }
       dispatch(setTime(seconds));
       setSeconds(0);
       dispatch(setIsActive(false));
-
-      dispatch(submit(encodeParams(data, data2)));
-      console.log('submitinggg')
+      dispatch(submit(encodeParams(data)));
       navigation.navigate("Finish", {name})
 
     }
@@ -128,8 +115,8 @@ function Game ({ navigation, route }){
                     maxLength={1}
                     keyboardType={'numeric'}
                     returnKeyType='done'
-                    onChange={(e)=>{
-                      updateBoard(e, idx1, idx2)
+                    onChange={(value)=>{
+                      updateBoard(value, idx1, idx2)
                     }}
                     />
                   )
