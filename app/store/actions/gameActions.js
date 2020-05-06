@@ -27,7 +27,9 @@ export function solve(data){
             if(res.data.status == 'solved'){
                 dispatch(setSolved(true));
                 dispatch(setTempBoard(res.data.solution));
+                console.log('a')
             }
+
             
         })
         .catch(err=>{
