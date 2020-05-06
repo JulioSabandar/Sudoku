@@ -9,7 +9,6 @@ function Game ({ navigation, route }){
     const dispatch = useDispatch(); 
     const { name } = route.params;
     const [seconds, setSeconds] = useState(0);
-    // const [isActive, setIsActive] = useState(false);
     useEffect(()=>{
       console.log('eaaaaaaaa')
       dispatch(setSolved(false));
