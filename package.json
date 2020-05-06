@@ -1,0 +1,24 @@
+{
+  "name": "sugoku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulioSabandar/sugoku.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulioSabandar/sugoku/issues"
+  },
+  "homepage": "https://github.com/JulioSabandar/sugoku#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "expo-cli": "^3.20.1"
+  }
+}
