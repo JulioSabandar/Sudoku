@@ -34,6 +34,7 @@ function Game ({ navigation, route }){
     }, [isActive, seconds]);
 
     const updateBoard = (value, idx1, idx2) => {
+      console.log(value.nativeEvent.text)
       let temp = tempBoard;
       temp[idx1][idx2] = Number(value.nativeEvent.text);
       dispatch(setTempBoard(temp));
